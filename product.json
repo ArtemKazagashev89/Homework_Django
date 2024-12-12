@@ -1,0 +1,93 @@
+[
+{
+    "model": "catalog.product",
+    "pk": 5,
+    "fields": {
+        "name": "помидоры",
+        "description": null,
+        "image": "",
+        "category": 1,
+        "price": "219.00",
+        "created_at": null,
+        "updated_at": null
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 7,
+    "fields": {
+        "name": "картофель",
+        "description": "крупный",
+        "image": "",
+        "category": 1,
+        "price": "31.00",
+        "created_at": null,
+        "updated_at": null
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 8,
+    "fields": {
+        "name": "яблоки",
+        "description": null,
+        "image": "",
+        "category": 2,
+        "price": "97.99",
+        "created_at": null,
+        "updated_at": null
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 9,
+    "fields": {
+        "name": "апельсины",
+        "description": null,
+        "image": "",
+        "category": 2,
+        "price": "189.00",
+        "created_at": null,
+        "updated_at": null
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 10,
+    "fields": {
+        "name": "персики",
+        "description": "инжирные",
+        "image": "",
+        "category": 2,
+        "price": "408.00",
+        "created_at": null,
+        "updated_at": null
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 11,
+    "fields": {
+        "name": "укроп",
+        "description": null,
+        "image": "",
+        "category": 3,
+        "price": "26.00",
+        "created_at": null,
+        "updated_at": null
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 12,
+    "fields": {
+        "name": "листья салата",
+        "description": null,
+        "image": "",
+        "category": 3,
+        "price": "120.00",
+        "created_at": null,
+        "updated_at": null
+    }
+}
+]
