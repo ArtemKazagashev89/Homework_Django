@@ -22,3 +22,4 @@ def product_detail(request, pk):
     context = {'product': product}
     return render(request, 'product_detail.html', context)
 
+
