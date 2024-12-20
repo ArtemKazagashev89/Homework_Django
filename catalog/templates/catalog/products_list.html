@@ -1,7 +1,7 @@
-{% extends 'base.html' %}
+{% extends 'catalog/base.html' %}
 {% load my_tags %}
 {% block content %}
-{% include 'header.html' %}
+{% include 'catalog/header.html' %}
 <nav class="ms-5">
     <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:contacts' %}">Контакты</a>
     <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:home' %}">О нас</a>
