@@ -1,0 +1,13 @@
+{% extends 'catalog/base.html' %}
+{% load my_tags %}
+{% block content %}
+{% include 'catalog/header.html' %}
+<h2>Удаление продукта</h2>
+<p>Вы действительно хотите удалить "{{ product.name }}"</p>
+<form method="post">
+    {% csrf_token %}
+    <img src="{{ product.image | filter_media }}" style="max-width: 300px; height: auto;">
+    <button type="submit" class="btn btn-danger">Потвердить</button>
+    <a href="{% url 'catalog:products_list' %}" class="btn btn-primary">Отменить</a>
+</form>
+{% endblock %}
