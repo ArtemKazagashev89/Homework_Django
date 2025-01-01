@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+{% include 'blog/header.html' %}
+<h2>Добавить Пост</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+    <a href="{% url 'blog:blogpost_list' %}" class="btn btn-secondary">Отменить</a>
+</form>
+
+{% if form.errors %}
+    <div class="alert alert-danger">
+        <strong>Ошибка!</strong> Проверьте, пожалуйста, ваши данные.
+    </div>
+{% endif %}
+
+{% endblock %}
