@@ -1,0 +1,40 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+{% include 'blog/header.html' %}
+<div class="container mt-4">
+    <h2>Редактировать Пост: {{ post.title }}</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <div class="mb-3">
+            {{ form.title.label(class="form-label") }}
+            {{ form.title|as_widget(attrs={'class': 'form-control', 'placeholder': 'Введите заголовок'}) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form.content.label(class="form-label") }}
+            {{ form.content|as_widget(attrs={'class': 'form-control', 'placeholder': 'Введите содержимое'}) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form.preview_image.label(class="form-label") }}
+            {{ form.preview_image|as_widget(attrs={'class': 'form-control'}) }}
+        </div>
+
+        <div class="mb-3 form-check">
+            {{ form.is_published|as_widget(attrs={'class': 'form-check-input'}) }}
+            {{ form.is_published.label(class="form-check-label") }}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+        <a href="{% url 'blog:blogpost_list' %}" class="btn btn-secondary">Отменить</a>
+    </form>
+
+    {% if form.errors %}
+        <div class="alert alert-danger mt-3">
+            <strong>Ошибка!</strong> Проверьте, пожалуйста, ваши данные.
+        </div>
+    {% endif %}
+</div>
+
+{% endblock %}
