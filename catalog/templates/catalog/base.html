@@ -170,10 +170,19 @@
         </div>
         <div class="col-sm-4 offset-md-1 py-4">
           <h4>Contact</h4>
+          {% if user.is_authenticated %}
           <ul class="list-unstyled">
-            <li><a href="{% url 'catalog:home' %}" class="text-white">О нас</a></li>
-            <li><a href="{% url 'catalog:products_list' %}" class="text-white">Главная</a></li>
-            <li><a href="{% url 'catalog:product_create' %}" class="text-white">Добавить продукт</a></li>
+            {% csrf_token %}
+              <li class="nav-item">
+                  <form method="post" action="{% url 'users:logout' %}" style="display: inline">
+                      {% csrf_token %}
+                      <button type="submit" class="btn btn-link nav-link">Выйти</button>
+                  </form>
+              </li>
+            {% else %}
+              <li><a href="{% url 'users:register' %}" class="text-white">Регистрация</a></li>
+              <li><a href="{% url 'users:login' %}" class="text-white">Войти</a></li>
+            {% endif %}
           </ul>
         </div>
       </div>
