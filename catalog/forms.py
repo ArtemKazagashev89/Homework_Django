@@ -1,8 +1,17 @@
 from django import forms
-from .models import Product
 from django.core.exceptions import ValidationError
 
+from .models import Product
+
 forbidden_words = ["казино", "криптовалюта", "крипта", "биржа", "дешево", "бесплатно", "обман", "полиция", "радар"]
+
+
+class ProductModeratorForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = [
+            "published_status",
+        ]
 
 
 class ProductForm(forms.ModelForm):
@@ -11,7 +20,7 @@ class ProductForm(forms.ModelForm):
         fields = [
             "name",
             "description",
-            "is_active",
+            "published_status",
             "image",
             "category",
             "price",
@@ -28,7 +37,7 @@ class ProductForm(forms.ModelForm):
             {"class": "form-control", "placeholder": "Введите описание продукта"}
         )
 
-        self.fields["is_active"].widget.attrs.update(
+        self.fields["published_status"].widget.attrs.update(
             {
                 "class": "form-check-input",
             }

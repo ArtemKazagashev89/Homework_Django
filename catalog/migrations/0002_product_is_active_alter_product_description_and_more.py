@@ -12,7 +12,7 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AddField(
             model_name="product",
-            name="is_active",
+            name="published_status",
             field=models.BooleanField(default=True, help_text="Товар в наличии"),
         ),
         migrations.AlterField(
