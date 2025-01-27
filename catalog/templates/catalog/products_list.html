@@ -5,6 +5,10 @@
 <nav class="ms-5">
     <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:contacts' %}">Контакты</a>
     <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:home' %}">О нас</a>
+    <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:product_create' %}">Добавить продукт</a>
+    <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:products_in_category' category_id=10 %}">Фрукты</a>
+    <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:products_in_category' category_id=9 %}">Овощи</a>
+    <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:products_in_category' category_id=11 %}">Зелень</a>
 </nav>
 <div class="album py-5 bg-body-tertiary">
   <div class="container">
@@ -14,7 +18,13 @@
       <div class="card shadow-sm">
         <img src="{{ product.image | filter_media }}">
         <div class="card-body">
+          {% if product.published_status %}
+              <p>Товар в наличии</p>
+          {% else %}
+              <p>Товар временно отсутствует</p>
+          {% endif %}
           <p class="card-text">{{ product.name }}</p>
+          <p class="card-text">{{ product.price }} р.</p>
           <p>{{ product.description|truncatechars:100 }}</p>
           <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group">

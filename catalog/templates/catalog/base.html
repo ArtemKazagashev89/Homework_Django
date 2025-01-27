@@ -170,10 +170,19 @@
         </div>
         <div class="col-sm-4 offset-md-1 py-4">
           <h4>Contact</h4>
+          {% if user.is_authenticated %}
           <ul class="list-unstyled">
-            <li><a href="{% url 'catalog:home' %}" class="text-white">Главная</a></li>
-            <li><a href="{% url 'catalog:products_list' %}" class="text-white">Каталог</a></li>
-            <li><a href="#" class="text-white">Регистрация</a></li>
+            {% csrf_token %}
+              <li class="nav-item">
+                  <form method="post" action="{% url 'users:logout' %}" style="display: inline">
+                      {% csrf_token %}
+                      <button type="submit" class="btn btn-link nav-link">Выйти</button>
+                  </form>
+              </li>
+            {% else %}
+              <li><a href="{% url 'users:register' %}" class="text-white">Регистрация</a></li>
+              <li><a href="{% url 'users:login' %}" class="text-white">Войти</a></li>
+            {% endif %}
           </ul>
         </div>
       </div>
@@ -200,15 +209,7 @@
 
 </main>
 
-<footer class="text-body-secondary py-5">
-  <div class="container">
-    <p class="float-end mb-1">
-      <a href="#">Back to top</a>
-    </p>
-    <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-    <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="/docs/5.3/getting-started/introduction/">getting started guide</a>.</p>
-  </div>
-</footer>
+
 <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 
 </body>
