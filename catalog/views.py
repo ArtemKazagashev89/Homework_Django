@@ -7,6 +7,17 @@ from django.views.generic import CreateView, DeleteView, DetailView, ListView, T
 
 from catalog.forms import ProductForm, ProductModeratorForm
 from catalog.models import Product
+from catalog.services import get_product_from_cache, get_products_by_category
+
+
+class ProductsInCategoryView(ListView):
+    model = Product
+    template_name = "catalog/products_in_category.html"
+    context_object_name = "products"
+
+    def get_queryset(self):
+        category_id = self.kwargs.get('category_id')
+        return get_products_by_category(category_id)
 
 
 class UnpublishProductView(LoginRequiredMixin, View):
@@ -67,6 +78,9 @@ class ProductListView(ListView):
     model = Product
     template_name = "catalog/products_list.html"
     context_object_name = "products"
+
+    def get_queryset(self):
+        return get_product_from_cache()
 
 
 class ProductDetailView(LoginRequiredMixin, DetailView):

@@ -6,6 +6,9 @@
     <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:contacts' %}">Контакты</a>
     <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:home' %}">О нас</a>
     <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:product_create' %}">Добавить продукт</a>
+    <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:products_in_category' category_id=10 %}">Фрукты</a>
+    <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:products_in_category' category_id=9 %}">Овощи</a>
+    <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:products_in_category' category_id=11 %}">Зелень</a>
 </nav>
 <div class="album py-5 bg-body-tertiary">
   <div class="container">
